@@ -51,3 +51,20 @@ INSERT INTO Mark (SubId, StudentId, Mark, ExamTimes)
 VALUES (1, 1, 8, 1),
        (1, 2, 10, 2),
        (2, 1, 12, 1);
+       
+SELECT * from student 
+where StudentName like 'h%';
+select * from class
+WHERE month(StarDate) = '12';
+select * from subject
+WHERE Credit BETWEEN 3 and 5;
+
+-- vì câu bến dưới nó update mà không thông qua khoá chính
+SET SQL_SAFE_UPDATES = 0;
+UPDATE 	student set classid = 2
+where studentname like 'hung';
+
+select studentname,subname,mark.Mark
+from student inner join mark on student.StudentID = mark.StudentID
+inner join subject on subject.SubID = mark.SubID
+order by Mark desc, StudentName;
